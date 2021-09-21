@@ -14,7 +14,10 @@ export default function Home({headline, posts}) {
     return (
         <>
             <Head>
-                <meta name="description" content="Opinião PDH é um lugar de opiniões feita por amadores"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:locale" content="pt_BR"/>
+                <meta name="og:description" content="Opinião PDH é um lugar de opiniões feita por amadores"/>
+                <meta property="og:title" content="Opiniões sobre o mundo"/>
                 <meta property="og:image" content="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/og.4ad05d4125a5.png"/>
                 <title>
                     Opnião PDH+

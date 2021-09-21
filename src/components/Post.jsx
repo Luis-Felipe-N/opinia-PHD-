@@ -105,7 +105,6 @@ export default function Post({idPost, createdAt, postContent}) {
                                     return (
                                         <iframe
                                             key={item.id}
-                                            width="700"
                                             height="300" 
                                             src={`https://www.youtube.com/embed/${item.video?.providerUid}`}
                                             title="YouTube video player" 
