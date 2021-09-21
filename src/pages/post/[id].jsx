@@ -38,7 +38,7 @@ export default function PostPost({posts}) {
                             <meta property="og:locale" content="pt_BR"/>
                             <meta name="og:description" content={post.postcontent.filter( item => item._modelApiKey === 'subtitle').map(item => item.subtitulo)}/>
                             <meta property="og:title" content={post.postcontent.filter( item => item._modelApiKey === 'title').map(item => item.titulo)}/>
-                            <meta property="og:image" content={post.postcontent.filter( item => item._modelApiKey === '"thumb"').map(item => item.thumb.url)}/>
+                            <meta property="og:image" content={post.postcontent.filter( item => item._modelApiKey === "thumb").map(item => item.thumb.url)}/>
                             <title>
                             {
                                 post.postcontent.filter( item => item._modelApiKey === 'title').map(item => item.titulo)
