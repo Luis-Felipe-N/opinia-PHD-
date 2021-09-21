@@ -1,0 +1,231 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+.post {
+    width: 100%;
+    padding: 1rem 5%;
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    flex-direction: column;
+    
+    .postContent {
+        
+        .header__title {
+            max-width: 1000px;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    
+            .title {
+                font-size: 4.5rem;
+                line-height: (4.5rem );
+                margin-bottom: 1rem;
+            }
+    
+            .subtitle {
+                // font-size: 22px;
+                font-size: max(1.9vw, 20px);
+                font-weight: 500;
+                margin-bottom: 1rem;
+                color: rgba(0, 0, 0, 0.6);
+            }
+    
+            .autor {
+                font-size: 16px;
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            .header__bottom {
+                display: flex;
+                justify-content: space-between;
+            }
+    
+            .date {
+                color: rgba(0, 0, 0, 0.6);
+                margin-bottom: 1rem;
+            }
+        }
+    
+        .main__content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+            
+            .content {
+                color: rgba(0, 0, 0, 0.8);
+                
+                a {
+                    color: $color-primary;
+                    font-weight: 600;
+                    text-decoration: underline;
+                }
+
+                h3 {
+                    font-size: 1.4rem;
+                    line-height: calc(1.4rem * 1.5);
+                }
+
+                p {
+                    font-size: 1.3rem;
+                    line-height: calc(1.3rem * 1.5);
+                }
+            }
+
+            .img {
+                width: 80% !important;
+                height: 80%;
+                object-fit: cover;
+            }
+
+
+        }
+    }
+    
+    .interaction_post {
+        width: 100%;
+
+        .comments_box{
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 1.5rem;
+            max-width: 60%;
+            margin: auto;
+    
+            header {
+                text-align: center;
+                margin-bottom: 1rem;
+                // border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+
+                h1 {
+                    font-size: 22px;
+                    font-weight: 500;
+                    color: rgba(0, 0, 0, 0.8);
+                    margin-bottom: .7rem;
+                }
+            }
+            .footer {
+                form {
+                    display: flex;
+                    gap: 1rem;
+                    flex-direction: column;
+                    textarea {
+                        margin-top: 1.7rem;
+                        min-height: 100px;
+                        resize: none;
+                        padding: .8rem;
+                        border: 2px solid rgba(0, 0, 0, 0.3);
+                        border-radius: 5px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+                    }
+                }
+    
+                .comments {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+
+                    .notcomments {
+                        text-align: center;
+                        font-weight: 400;
+                    }
+                    
+                    .comment {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .2rem;
+    
+        
+                        .author_name {
+                            @include center-sb;
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: $color-primary;
+                            display: flex;
+                            align-items: center;
+                            gap: .2rem;
+    
+                            button {
+                                padding: .3rem;
+                                border-radius: .2rem;
+                                border: 0;
+                                background-color: white;
+                                cursor: pointer;
+    
+                                @include hover;
+                            }
+                        }
+        
+                        .comment{
+                            font-size: 14px;
+                            font-weight: 600;
+                            color: rgba(0, 0, 0, 0.6)
+                        }
+                        
+                        .createdAt {
+                            font-size: 12px;
+                            color: rgba(0, 0, 0, 0.6)
+                        }
+                    }
+                }
+    
+            }
+        }
+        
+    }
+}
+
+// @media (max-width: 1100px) {
+//     .post {
+
+//         .postContent  {
+//             .main__content {
+//                 margin: 0;
+
+//                 .content {
+//                     font-size: 16px;
+//                 }
+//             }
+//         }
+
+        
+//         .interaction_post {
+//             // padding: 2rem 0;
+
+//             .article__author_box, .comments_box {
+//                 // width: 50%;
+//             }
+//         }
+//     }
+// }
+
+@media (max-width: 800px) {
+    .post {
+        .postContent {
+            .main__content {
+                margin: 0;
+        
+                .content {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .interaction_post {
+            // width: 100vw;
+    
+            .comments_box{
+                max-width: 100%;
+                box-shadow: none;
+                margin-bottom: 2rem;
+                // margin: 0;
+            }
+        }
+    }
+}

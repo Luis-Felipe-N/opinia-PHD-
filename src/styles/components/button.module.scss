@@ -1,0 +1,46 @@
+@import '../utils/variables.scss';
+
+.button {
+    padding: .8rem 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: .2s;
+    color: $color-primary;
+    background-color: white;
+
+    &:not(:disabled) {
+        &:hover {
+            filter: brightness(.8);
+        }
+    }
+    &:disabled{
+        filter: brightness(.6);
+    }
+}
+
+.button_inverse {
+    padding: .8rem 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: .2s;
+    color: white;
+    background-color: $color-primary;
+
+    &:disabled{
+        filter: brightness(.6);
+    }
+
+    &:not(:disabled) {
+        &:hover {
+            filter: brightness(.8);
+        }
+    }
+
+    // &:n
+}

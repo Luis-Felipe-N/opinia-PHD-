@@ -1,0 +1,14 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+.main {
+    width: 100vw;
+    min-height: 100vh;
+    @include center;
+    flex-direction: column;
+
+    a {
+        padding-top: 2rem;
+        color: $color-primary;
+    }
+}

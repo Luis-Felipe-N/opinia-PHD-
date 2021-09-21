@@ -1,0 +1,198 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+.header {
+    display: flex;
+    @include center-sb;
+    padding: 1rem 5%;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: $color-primary;
+
+
+    .logo {
+        color: #fff;
+        flex: 2;
+    }
+
+    [data-menu-mobile] {
+        display: none;
+    }
+
+    .menu ul {
+        @include center;
+        list-style: none;
+
+        .menu_profile  {
+            position: relative;
+
+            button {
+                margin: 0;
+                cursor: pointer;
+            }
+
+            .button_icon {
+                background-color: transparent;
+                border: 0;
+                border-radius: 100%;
+            }
+            
+            .menu_user {
+                display: none;
+            }
+
+            .menu_user.active{
+                display: flex;
+                animation: animaTop .2s forwards;
+                width: 140px;
+                overflow: hidden;
+                background-color: #fff;
+                box-shadow: 0 0 20px rgb(0, 0, 0, 0.2);
+                flex-direction: column;
+                
+
+                border-radius: 5px;
+
+                position: absolute;
+                top: 3rem;
+                right: 0;
+
+                li {
+                    &:first-child {
+                        padding: .7rem;
+                    }
+                
+                    width: 100%;
+
+                    button {
+                        border-radius:0;
+                        width: 100%;
+                        padding: .7rem;
+                        height: 100%;
+                                         
+                    }
+                }
+            }
+        }
+
+        li a {
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 1rem 1.5rem;
+            position: relative;
+
+            &::after {
+                content: '';
+                display: block;
+                height: 2px;
+                width: 0%;
+                
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                
+                background-color: white;
+                margin-top: 5px;
+                transition: .2s;
+            }
+            &:hover {
+               &::after {
+                   width: 90%;
+               }
+            }
+        }
+
+        li a.active {
+            &::after {
+                width: 90% !important;
+            }
+        }
+
+        .container_btns {
+            display: flex;
+            gap: .5rem;
+        }
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .header {
+        .menu ul {
+            box-shadow: 0 0 40px rgb(0, 0, 0, 0.2);
+            height: 100vh;
+            width: 70vw;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: -100%;
+            background-color: white;
+            flex-direction: column;
+            gap: 3rem;
+            transition: .2s;
+            display: none;
+            
+            li a {
+                color: $color-primary;
+                font-size: 18px;
+                
+                &::after {
+                    background-color:  $color-primary;
+                }
+            }
+
+            .container_btns {
+                flex-direction: column-reverse;
+            }
+        }
+        
+        [data-menu-mobile] {
+            display: block;
+            z-index: 3;
+        }
+              
+        .menu ul.active {
+            right: 0;
+            display: flex;
+
+            .menu_profile {
+                @include center;
+                flex-direction: column;
+                width: 100%;
+
+                .button_icon{
+                    svg {
+                        color: $color-primary !important;
+                    }
+                }
+
+                .menu_user {
+                    gap: 0;
+                    position: static;
+                    height: 100%;
+                    transform: translateX(0);
+                    margin-top: 1rem;
+                }
+            }
+
+        }
+        
+        .menu.active + [data-menu-mobile] {
+            box-shadow: 0 0 0 2px  $color-primary;
+        }
+
+    }
+}
+
+@keyframes animaTop {
+    to {
+        top: 3rem;
+    } from {
+        top:2rem;
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "DISABLE_ESLINT_PLUGIN=true next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "firebase": "^8.9.0",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.2.0",
+    "react-modal": "^3.14.3",
+    "react-router-dom": "^5.2.0",
+    "sass": "^1.37.5"
+  },
+  "devDependencies": {
+    "datocms-client": "^3.4.13",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.0.1"
+  }
+}

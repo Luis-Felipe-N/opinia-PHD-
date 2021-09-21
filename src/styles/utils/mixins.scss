@@ -1,0 +1,18 @@
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin center-sb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin hover {
+    transition: .2s;
+    &:hover {
+        filter: brightness(.8);
+    }
+}

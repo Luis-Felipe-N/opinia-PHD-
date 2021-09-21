@@ -1,0 +1,33 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.main {
+    width: 100vw;
+    min-height: calc(90px - 100vh);
+    @include center;
+    flex-direction: column;
+    padding: 1rem 5%;
+
+    .container_post {
+        @include center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        width: 100%;
+        > h1 {
+            color: $color-black-8;
+            width: 100%;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: solid 2px $color-black-2;
+        }
+    }
+
+    .not_posts {
+        text-align: center;
+        color: $color-black-8;
+        margin-top: 2rem;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+}

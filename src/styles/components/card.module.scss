@@ -1,0 +1,67 @@
+@import '../utils/variables.scss';
+
+.card {
+    width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: .2s;
+
+    img {
+        object-fit: cover;
+    }
+    
+    &:hover {
+        img {
+            width: 110%;
+            height: 110%;
+        }
+    }
+    
+    .card_footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 10rem;
+        padding: .7rem;
+
+        .title {
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        .info {
+            display: flex;
+            align-items: flex-start;
+            gap: .7rem;
+            margin-top: 1rem;
+
+            img {
+                object-fit: cover;
+                border-radius: 100%;
+                width: 50px;
+                height: 50px;
+            }
+
+            .article__author_info {
+                // max-width: calc(78px - 100%);
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+
+                .author_name {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: $color-primary;
+                }
+
+                .article_createdAt{
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: rgba(0, 0, 0, 0.6)
+                }
+            }
+        }
+    }
+}
