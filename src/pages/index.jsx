@@ -15,7 +15,7 @@ export default function Home({headline, posts}) {
         <>
             <Head>
                 <meta name="description" content="Opinião PDH é um lugar de opiniões feita por amadores"/>
-                <meta property="og:image" content="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/og.4ad05d4125a5.png">
+                <meta property="og:image" content="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/og.4ad05d4125a5.png"/>
                 <title>
                     Opnião PDH+
                 </title>
