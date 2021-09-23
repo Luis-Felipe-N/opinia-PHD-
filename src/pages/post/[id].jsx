@@ -14,15 +14,16 @@ export default function PostPost({posts}) {
     const router = useRouter()
  
     useEffect(() => {
-        const postId =  router.query.id.split('&')[1]
-        console.log(postId)
-        if (posts) {
-            const parsedPost = posts.filter( post => post.id == postId)[0]
-
-            if (parsedPost) {
-                setPost(parsedPost)
-            } else {
-                router.push('/404')
+        if ( router.query.id ) {
+            const postId =  router.query.id.split('&')[1]
+            if (posts) {
+                const parsedPost = posts.filter( post => post.id == postId)[0]
+    
+                if (parsedPost) {
+                    setPost(parsedPost)
+                } else {
+                    router.push('/404')
+                }
             }
         }
     }, [posts])
@@ -34,16 +35,12 @@ export default function PostPost({posts}) {
                 post && (
                     <>
                         <Head>
-                            <meta property="og:type" content="website"/>
-                            <meta property="og:locale" content="pt_BR"/>
-                            <meta name="og:description" content={post.postcontent.filter( item => item._modelApiKey === 'subtitle').map(item => item.subtitulo)}/>
-                            <meta property="og:title" content={post.postcontent.filter( item => item._modelApiKey === 'title').map(item => item.titulo)}/>
-                            <meta property="og:image" content={post.postcontent.filter( item => item._modelApiKey === "thumb").map(item => item.thumb.url)}/>
                             <title>
                             {
                                 post.postcontent.filter( item => item._modelApiKey === 'title').map(item => item.titulo)
                             }
                             </title>
+                            
                         </Head>
                         <Post idPost={post.id} createdAt={post.createdAt} postContent={post.postcontent} />
                         <SuggestedPosts posts={posts} category="css" />

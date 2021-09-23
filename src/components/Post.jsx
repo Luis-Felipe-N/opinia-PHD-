@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Head from 'next/head'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
 
@@ -12,6 +13,7 @@ import { RiDeleteBin2Line } from 'react-icons/ri'
 
 import styles from '../styles/components/post.module.scss'
 import { db } from '../lib/firebase'
+import { OpinionAuthor } from './OpinionAuthor'
 
 
 export default function Post({idPost, createdAt, postContent}) {
@@ -75,6 +77,13 @@ export default function Post({idPost, createdAt, postContent}) {
 
     return (
         <>
+        <Head>
+            {/* <meta property="og:type" content="website"/>
+            <meta property="og:locale" content="pt_BR"/>
+            <meta name="og:description" content={post.postcontent.filter( item => item._modelApiKey === 'subtitle').map(item => item.subtitulo)}/>
+            <meta property="og:title" content={post.postcontent.filter( item => item._modelApiKey === 'title').map(item => item.titulo)}/>
+            <meta property="og:image" content={post.postcontent.filter( item => item._modelApiKey === "thumb").map(item => item.thumb.url)}/> */}
+        </Head>
         <section className={styles.post}>
             <div className={styles.postContent}>
                 <header className={styles.header__title}>
@@ -92,47 +101,51 @@ export default function Post({idPost, createdAt, postContent}) {
                         }
                     </div>
                 </header>
-                
-                <div className={styles.main__content}>
-                    {
-                        postContent.map( item => {
-                            if (item._modelApiKey === 'content') {
-                                return <div key={item.id} className={styles.content} dangerouslySetInnerHTML={{__html: item.conteudo}}></div>
-                            }
 
-                            if (item._modelApiKey === 'image') {
-                                if(item.video) {
-                                    return (
-                                        <iframe
-                                            key={item.id}
-                                            height="300" 
-                                            src={`https://www.youtube.com/embed/${item.video?.providerUid}`}
-                                            title="YouTube video player" 
-                                            frameBorder="0" 
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen>
-                                        </iframe>
-                                    )
+                <div>
+                    <div className={styles.main__content}>
+                        {
+                            postContent.map( item => {
+                                if (item._modelApiKey === 'content') {
+                                    return <div key={item.id} className={styles.content} dangerouslySetInnerHTML={{__html: item.conteudo}}></div>
                                 }
-                            }
 
-                            if (item._modelApiKey === 'image') {
-                                if(item.imagem[0]) {
-                                    return (
-                                        <Image
-                                            alt={item.alt}
-                                            key={item.id}
-                                            className={styles.img}
-                                            src={item.imagem[0].url}
-                                            width={item.imagem[0].width}
-                                            height={item.imagem[0].height}
-                                        />
-                                    )
+                                if (item._modelApiKey === 'image') {
+                                    if(item.video) {
+                                        return (
+                                            <iframe
+                                                key={item.id}
+                                                height="300" 
+                                                src={`https://www.youtube.com/embed/${item.video?.providerUid}`}
+                                                title="YouTube video player" 
+                                                frameBorder="0" 
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen>
+                                            </iframe>
+                                        )
+                                    }
                                 }
-                            }
-                        })
-                    }
+
+                                if (item._modelApiKey === 'image') {
+                                    if(item.imagem[0]) {
+                                        return (
+                                            <Image
+                                                alt={item.alt}
+                                                key={item.id}
+                                                className={styles.img}
+                                                src={item.imagem[0].url}
+                                                width={item.imagem[0].width}
+                                                height={item.imagem[0].height}
+                                            />
+                                            )
+                                        }
+                                    }
+                                })
+                        }
+                    </div>
+                    <OpinionAuthor />
                 </div>
+                
             </div>
             <div className={styles.interaction_post}>
                 <div className={styles.comments_box}>

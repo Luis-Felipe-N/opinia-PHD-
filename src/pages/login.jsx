@@ -28,6 +28,8 @@ export default function Login() {
             return
         }
         const response = await singInEmailPassword(email, senha)
+
+        console.log(response)
         
         if ( response.sucess ) {
             Router.push('/')

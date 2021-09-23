@@ -36,6 +36,7 @@ export function AuthProvider({children}) {
     const singInEmailPassword = async (email, senha) => {
         try {
             const response = await auth.signInWithEmailAndPassword(email, senha)
+            console.log(response)
 
             if(response.user) {
                 const { uid } = response.user
@@ -64,6 +65,8 @@ export function AuthProvider({children}) {
                     code: 'password',
                     message: 'Senha incorreta!'
                 }
+            } else {
+                console.log(error)
             }
         }
     }

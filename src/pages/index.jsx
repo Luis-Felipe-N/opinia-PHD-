@@ -18,7 +18,7 @@ export default function Home({headline, posts}) {
                 <meta property="og:locale" content="pt_BR"/>
                 <meta name="og:description" content="Opinião PDH é um lugar de opiniões feita por amadores"/>
                 <meta property="og:title" content="Opiniões sobre o mundo"/>
-                <meta property="og:image" content="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/og.4ad05d4125a5.png"/>
+                <meta property="og:image" content="/cover.svg"/>
                 <title>
                     Opnião PDH+
                 </title>
@@ -45,7 +45,6 @@ export async function getStaticProps() {
     const response = await getAllPost()
     const posts = response.allPosts
     const headline = response.allPosts[0]
-    console.log(headline, posts)
 
     return {
         props: {

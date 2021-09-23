@@ -1,0 +1,39 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.comment {
+    display: flex;
+    flex-direction: column;
+
+
+    .author_name {
+        @include center-sb;
+        font-size: 18px;
+        font-weight: 600;
+        color: $color-primary;
+        display: flex;
+        align-items: center;
+        gap: .2rem;
+
+        button {
+            padding: .3rem;
+            border-radius: .2rem;
+            border: 0;
+            background-color: white;
+            cursor: pointer;
+
+            @include hover;
+        }
+    }
+
+    .comment{
+        font-size: 14px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.6)
+    }
+    
+    .createdAt {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.6)
+    }
+}
